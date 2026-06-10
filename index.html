@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>VR Linux OS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="bg"></div>
+
+
+
+<div id="topbar">
+  <span>TEAM ZERO</span>
+  <span id="time"></span>
+</div>
+
+<!-- Dock -->
+<div id="dock">
+  <div onclick="openApp('terminal')">⌨️</div>
+  <div onclick="openApp('explorer')">📁</div>
+</div>
+    
+<!-- Terminal -->
+<div id="terminal" class="window hidden">
+  <div class="title" onmousedown="drag(event,this.parentElement)">
+    Terminal <button onclick="closeApp('terminal')">X</button>
+  </div>
+  <div id="output"></div>
+  <input id="input" placeholder="type command..." onkeydown="runCommand(event)">
+</div>
+
+<!-- Explorer -->
+<div id="explorer" class="window hidden">
+  <div class="title" onmousedown="drag(event,this.parentElement)">
+    Explorer <button onclick="closeApp('explorer')">X</button>
+  </div>
+  <div id="files"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html> 
