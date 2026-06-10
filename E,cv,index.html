@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habiba Hassan | Cybersecurity & Web Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0a0b10;
+            --neon-cyan: #00f2fe;
+            --neon-purple: #4facfe;
+            --text-color: #ffffff;
+            --muted-text: #8b9bb4;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(0, 242, 254, 0.05) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(79, 172, 254, 0.05) 0px, transparent 50%);
+        }
+
+        /* Header & Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        nav a {
+            color: var(--muted-text);
+            text-decoration: none;
+            margin-left: 35px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            padding-top: 100px;
+        }
+
+        .hero h3 {
+            font-size: 18px;
+            color: var(--neon-cyan);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: var(--muted-text);
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            border: 1px solid var(--neon-cyan);
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            background: transparent;
+            transition: 0.4s;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-color);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+            font-weight: bold;
+            border-color: var(--neon-cyan) !important;
+        }
+
+        /* Sections General Layout */
+        section {
+            padding: 100px 8% 40px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* Skills Grid - Glassmorphism style */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 8px;
+            transition: 0.4s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-purple);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.05);
+        }
+
+        .skill-card i {
+            font-size: 35px;
+            color: var(--neon-cyan);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            color: var(--muted-text);
+            line-height: 1.8;
+        }
+
+        .skill-card ul li::before {
+            content: "⚡ ";
+            color: var(--neon-purple);
+        }
+
+        /* Projects Timeline/Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+            min-height: 280px;
+        }
+
+        .project-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--neon-cyan), var(--neon-purple));
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .project-card p {
+            color: var(--muted-text);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tags span {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            font-size: 11px;
+            border-radius: 20px;
+            color: var(--neon-cyan);
+        }
+
+        .github-link {
+            color: var(--muted-text);
+            font-size: 22px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .github-link:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+            transform: scale(1.15);
+        }
+
+        /* Certifications & Experience (Two columns) */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 40px; }
+            nav { display: none; }
+        }
+
+        .timeline-item {
+            border-left: 2px solid var(--glass-border);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -6px;
+            width: 10px;
+            height: 10px;
+            background: var(--neon-purple);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-purple);
+        }
+
+        .cert-link {
+            color: #fff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .cert-link:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .cert-link i {
+            font-size: 13px;
+            color: var(--neon-purple);
+            transition: 0.3s;
+        }
+
+        .cert-link:hover i {
+            color: var(--neon-cyan);
+            transform: translate(2px, -2px);
+        }
+
+        .timeline-item h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .meta {
+            font-size: 13px;
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: var(--muted-text);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--muted-text);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">HABIBA<span>.SEC</span></a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certs">Certificates & Activities</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <h3>Welcome to my digital realm</h3>
+        <h1>Habiba Hassan El-Sayed</h1>
+        <p>Information Technology (IT) student specializing in <strong>Cybersecurity</strong> at Helwan University (HITU). I bridge my passion for Front-End Web Development with a solid understanding of Networking and Digital Forensics to build secure, innovative tech solutions.</p>
+        
+     <!-- WhatsApp Button (Example Template) -->
+           
+        <div class="contact-container">
+            <!-- Email Button (Example Template) -->
+            <a href="mailto:habiba7tag2025@gmail.com" class="btn" title="Send an Email">
+                <i class="fa-regular fa-envelope"></i> Email Me
+            </a>
+            <!-- LinkedIn Button (Example Template) -->
+            <a href="https://linkedin.com/in/habiba-hassan-example" target="_blank" class="btn" style="border-color: #0a66c2;" title="Connect on LinkedIn">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <!-- GitHub Button (Example Template) -->
+            <a href="https://github.com/habiba-example" target="_blank" class="btn" style="border-color: #ffffff;" title="View GitHub Profile">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+           
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Cybersecurity & Networking</h3>
+                <ul>
+                    <li>Digital Forensics Specialist</li>
+                    <li>Memory & Network Forensics Analysis</li>
+                    <li>Network Design & Subnetting Architecture</li>
+                    <li>Topology Simulation via Cisco Packet Tracer</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-code"></i>
+                <h3>Web Development</h3>
+                <ul>
+                    <li>Advanced Front-End: HTML, CSS, JavaScript</li>
+                    <li>Responsive & Modern UI/UX Implementation</li>
+                    <li>Back-End Fundamentals (Continuous Learning)</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-database"></i>
+                <h3>Database Management</h3>
+                <ul>
+                    <li>Proficient in Relational Database Scripting (SQL)</li>
+                    <li>Entity-Relationship Diagram (ERD) Architecture</li>
+                    <li>Data Schema Design for Corporate Enterprise Systems</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-terminal"></i>
+                <h3>Systems & Low-Level Dev</h3>
+                <ul>
+                    <li>OS Administration: Linux & Ubuntu Systems</li>
+                    <li>Hardware-Software Integration via Arduino</li>
+                    <li>Object-Oriented Programming using C++</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Academic & Personal Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div>
+                    <h3>Clover: Cyber & Eco-Refinery Platform</h3>
+                    <p>A conceptual web infrastructure utilizing military-grade encryption protocols to permanently purge legacy device storage ensuring full confidentiality, while tracking electronic e-waste recycling and issuing Green Carbon certificates.</p>
+                </div>
+                <div class="project-footer">
+                    <div class="project-tags">
+                        <span>Cybersecurity</span><span>Green IT</span><span>Encryption</span>
+                    </div>
+                    <a href="https://github.com/habiba-example/clover" target="_blank" class="github-link" title="View on GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div>
+                    <h3>Laser Anti-Theft Security System</h3>
+                    <p>A hardware-software prototype engineered using Arduino Uno and programmed in C++. Features an automated security mesh leveraging laser modules and LDR photoresistors for perimeter breach detection.</p>
+                </div>
+                <div class="project-footer">
+                    <div class="project-tags">
+                        <span>Arduino</span><span>C++</span><span>Hardware Dev</span>
+                    </div>
+                    <a href="https://github.com/habiba-example/laser-security" target="_blank" class="github-link" title="View on GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div>
+                    <h3>Linux Terminal Web Simulator</h3>
+                    <p>An interactive, browser-based web simulator mapping visual representations and execution states of a Linux operating system environment.</p>
+                </div>
+                <div class="project-footer">
+                    <div class="project-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                    <a href="https://github.com/habiba-example/linux-simulator" target="_blank" class="github-link" title="View on GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div>
+                    <h3>Used Books Exchange Hub</h3>
+                    <p>A functional front-end web portal engineered to streamline the display, transaction, and P2P sharing of used academic literature among university student bodies.</p>
+                </div>
+                <div class="project-footer">
+                    <div class="project-tags">
+                        <span>Web Dev</span><span>Front-End</span><span>UI/UX</span>
+                    </div>
+                    <a href="https://github.com/habiba-example/books-exchange" target="_blank" class="github-link" title="View on GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div>
+                    <h3>Relational Database Architectures</h3>
+                    <p>Designed and structured backend data schemas (SQL/ERD) mapping complex corporate operations and dedicated transaction pipelines for e-commerce order management systems.</p>
+                </div>
+                <div class="project-footer">
+                    <div class="project-tags">
+                        <span>SQL</span><span>ERD Design</span><span>Databases</span>
+                    </div>
+                    <a href="https://github.com/habiba-example/database-systems" target="_blank" class="github-link" title="View on GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Volunteering -->
+    <section id="certs">
+        <div class="two-column">
+            <!-- Certifications Column -->
+            <div>
+                <h2 class="section-title">Verified Certifications</h2>
+                
+                <div class="timeline-item">
+                    <h4>
+                        <a href="https://drive.google.com/file/d/example1" target="_blank" class="cert-link">
+                            Digital Forensics Specialist
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </h4>
+                    <div class="meta">MaharaTech Platform | 8 Credit Hours</div>
+                    <p>Comprehensive specialization covering: Digital Forensics Fundamentals, Memory & Network Forensic Data Analysis, and Advanced File Systems, Mobile Analysis & OSINT techniques.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>
+                        <a href="https://drive.google.com/file/d/example2" target="_blank" class="cert-link">
+                            Linux & Ubuntu OS Administration
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </h4>
+                    <div class="meta">MaharaTech Platform | 7h 20m Credit Hours</div>
+                    <p>In-depth study of environment management, deployment pipelines, terminal manipulation, and system commands vital for offensive and defensive cybersecurity roles.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>
+                        <a href="https://drive.google.com/file/d/example3" target="_blank" class="cert-link">
+                            Web Interface Engineering (HTML & CSS)
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </h4>
+                    <div class="meta">MaharaTech Platform | 7h 47m Credit Hours</div>
+                    <p>Professional accreditation in responsive layout configuration, modern web architecture mapping, and semantic interface design.</p>
+                </div>
+            </div>
+
+            <!-- Volunteering Column -->
+            <div>
+                <h2 class="section-title">Student Activities & Leadership</h2>
+                
+                <div class="timeline-item">
+                    <h4>Web Developer</h4>
+                    <div class="meta">IEEE HITU Student Branch</div>
+                    <p>Actively contributing to the engineering and design of the branch's web assets, while facilitating tech-focused community workshops and technical operations.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Active Member</h4>
+                    <div class="meta">University Scouting Team</div>
+                    <p>Cultivating core skills in agile teamwork, logistical coordination, crises leadership, and rapid decision-making under intense physical and mental environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Habiba Hassan. Engineered with passion to forge a secure future.</p>
+    </footer>
+
+</body>
+</html>
