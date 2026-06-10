@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnviroSecure | Sustainable Data Sanitization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+
+
+
+<STyle>
+/* تنسيقات متقدمة وشاملة */
+:root {
+    --primary-blue: #0A84FF; /* لون آبل للأزرق التقني */
+    --primary-green: #30D158; /* لون آبل للأخضر البيئي */
+    --dark-bg: #011d34;
+    --card-bg: rgba(255, 255, 255, 0.05); /* زجاجي خفيف جداً */
+    --text-main: #FFFFFF;
+    --text-muted: #A1A1A6;
+    --font-ar: 'Cairo', sans-serif;
+    --font-en: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* تمرير ناعم */
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    font-family: var(--font-ar);
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* خلفية متحركة (Blobs) */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.5;
+}
+
+.blob-1, .blob-2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: blobBounce 20s infinite alternate;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(38, 74, 110, 0.399);
+    top: -100px;
+    right: -100px;
+}
+
+.blob-2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(48, 209, 88, 0.15);
+    bottom: -50px;
+    left: -50px;
+    animation-delay: -5s;
+}
+
+@keyframes blobBounce {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* الهيدر الزجاجي (Glassmorphism) */
+.glass-header {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px); /* تأثير التغبيش */
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(63, 80, 157, 0.205);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.container_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+
+.logo {
+    font-family: var(--font-en);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.logo span { color: var(--primary-green); }
+.logo i { color: var(--primary-blue); font-size: 24px; }
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover { color: var(--primary-blue); transform: translateY(-2px); }
+
+
+.btn-cta {
+    padding: 10px 20px;
+    background: var(--card-bg);
+    border: 1px solid rgba(6, 65, 167, 0.421);
+    color: var(--text-main);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-cta:hover { background: rgba(50, 100, 252, 0.412); border-color: var(--primary-blue); }
+
+/* القسم الرئيسي (Hero Grid) */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(48, 79, 110, 0.4);
+    color: var(--primary-blue);
+    border: 1px solid rgba(10, 132, 255, 0.3);
+    border-radius: 50px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;   /* النص يصبح شفافاً ليظهر التدرج خلفه */
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    max-width: 550px;
+    margin-bottom: 40px;
+}
+
+.hero-btns { display: flex; gap: 15px; }
+
+.btn-primary, .btn-secondary {
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue), #006ae6);
+    color: white;
+}
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(10, 132, 255, 0.5); }
+
+.btn-secondary {
+    background: var(--card-bg);
+    border: 1px solid rgba(61, 125, 255, 0.371);
+    color: var(--text-main);
+}
+.btn-secondary:hover { background: rgba(30, 69, 143, 0.323); }
+
+/* Visual/Certificate Card */
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(50, 248, 251, 0.31);
+    border-radius: 20px;
+    padding: 30px;
+    transition: 0.3s ease;
+}
+
+.certificate-mockup {
+    width: 350px;
+    text-align: center;
+    transform: rotate(5deg);
+    box-shadow: 0 20px 50px rgba(52, 194, 246, 0.5);
+}
+.cer-icon { font-size: 50px; color: var(--primary-green); margin-bottom: 20px; }
+.certificate-mockup h4 { margin-bottom: 10px; font-weight: 700; }
+.certificate-mockup p { font-size: 12px; color: var(--text-muted); font-family: var(--font-en); margin-bottom: 5px; }
+.status { color: var(--primary-green); font-weight: 600; }
+
+/* قسم التقنيات Grid */
+
+.tech-stack { padding: 100px 0; }
+.section-title { text-align: center; font-size: 3rem; margin-bottom: 60px; }
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card-hover:hover {
+    border-color: rgba(10, 132, 255, 0.458);
+    transform: translateY(-10px);
+}
+
+.icon-gradient {
+    font-size: 40px;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.grid-3 h3 { margin-bottom: 15px; font-size: 1.5rem; }
+.grid-3 p { color: var(--text-muted); font-size: 1rem; line-height: 1.8; }
+
+/* الفوتر */
+
+footer {
+    padding: 50px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    color: var(--text-muted);
+}
+footer strong { color: var(--primary-green); font-family: var(--font-en); }
+.credits { font-size: 13px; margin-top: 10px; }
+
+</STyle>
+
+
+
+
+
+<body>
+
+    <div class="bg-animation">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+    </div>
+
+    <header class="glass-header">
+        <div class="container_nav">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i> Enviro<span>Secure</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#tech">التقنية</a></li>
+                    <li><a href="#process">الرحلة</a></li>
+                    <li><a href="#impact">الأثر</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-cta">إتلاف آمن <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="badge">الأمن السيبراني 🤝 الاستدامة</span>
+                <h1>Secure the Cloud,<br> <span class="text-gradient">Save the Ground</span></h1>
+                <p>المنصة اللوجستية الأولى في المنطقة لإتلاف البيانات بمعايير عسكرية (DoD) وإعادة تدوير النفايات الإلكترونية بشفافية كاملة عبر البلوكشين.</p>
+                <div class="hero-btns">
+                    <a href="#process" class="btn-primary">ابدأ رحلة التخلص <i class="fas fa-recycle"></i></a>
+                    <a href="#tech" class="btn-secondary">استكشف بروتوكول NIST <i class="fas fa-code"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="glass-card certificate-mockup">
+                    <i class="fas fa-certificate cer-icon"></i>
+                    <h4>شهادة إتلاف بيانات برمجية</h4>
+                    <p>المعرف الرقمي: ESEC-8903-XXXX</p>
+                    <p>المعيار: DoD 5220.22-M</p>
+                    <p>الحالة: <span class="status">تم التحقق منها بيئياً</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="tech" class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">التكامل التقني <span class="text-gradient">لحماية مزدوجة</span></h2>
+            <div class="grid-3">
+                <div class="glass-card card-hover">
+                    <i class="fas fa-file-signature icon-gradient"></i>
+                    <h3>NIST Data Sanitization</h3>
+                    <p>نستخدم خوارزميات الكتابة فوق البيانات (Overwriting) لـ 7 مرات متتالية، مما يضمن استحالة استرجاعها حتى بأعقد الوسائل الفيزيائية.</p>
+                </div>
+                <div class="glass-card card-hover">
+                    <i class="fas fa-link icon-gradient"></i>
+                    <h3>Blockchain Traceability</h3>
+                    <p>سجل شفاف، غير قابل للتعديل، يتتبع كل جهاز من لحظة الاستلام حتى التفكيك، مانعاً للسرقة أو التخلص غير الآمن.</p>
+                </div>
+                <div class="glass-card card-hover">
+                    <i class="fas fa-leaf icon-gradient"></i>
+                    <h3>E-Waste Circularity</h3>
+                    <p>استخراج آمن للمعادن الثمينة (الذهب، النحاس) وإصدار شهادات "البصمة الكربونية الخضراء" للمؤسسات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة &copy; 2026 | مشروع <strong>EnviroSecure</strong></p>
+            <p class="credits">تحت إشراف د. أشرف ميمي | طالب Habiba Hassan :  </p>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
